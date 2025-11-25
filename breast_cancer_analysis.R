@@ -6,6 +6,9 @@ library(ggplot2)
 library(naniar)
 library(visdat)
 library(logistf)
+library(tidyr)
+library(stringr)
+
 
 ###############################################
 # LOAD DATA
@@ -293,3 +296,40 @@ df_missing %>%
        x = "% Missing", y = "Variable") +
   theme_minimal() +
   theme(axis.text.y = element_text(size = 6))
+
+#Break missing data plot into 6 different panels to enhance visibility
+# Compute % missing per variable
+df_missing <- df %>%
+  summarise(across(everything(), ~ mean(is.na(.)) * 100)) %>%
+  pivot_longer(everything(),
+               names_to = "Variable",
+               values_to = "MissingPercent") %>%
+  arrange(desc(MissingPercent)) %>%
+  mutate(Variable = str_wrap(Variable, width = 18)) %>%   # wrap long names
+  mutate(group = ntile(row_number(), 6))                   # split into 6 panels
+# change 6 → 4 if needed
+
+# Faceted missingness plot
+ggplot(df_missing,
+       aes(x = MissingPercent,
+           y = reorder(Variable, MissingPercent))) +
+  geom_segment(aes(x = 0,
+                   xend = MissingPercent,
+                   y = Variable,
+                   yend = Variable),
+               color = "grey70") +
+  geom_point(size = 2, color = "steelblue") +
+  labs(
+    title = "Missing Data (%) per Variable",
+    x = "% Missing",
+    y = "Variable"
+  ) +
+  facet_wrap(~ group,
+             scales = "free_y",
+             ncol = 3) +             # 3 columns like your example
+  theme_minimal() +
+  theme(
+    axis.text.y = element_text(size = 6),
+    plot.title = element_text(size = 16, face = "bold")
+  )
+
