@@ -1,3 +1,12 @@
+###############################################################################
+# Project: Clinical Toxicity & Staging Analysis
+# Author: Dr. Toluwanimi Adeyanju
+# Description: 
+#   This script processes clinical breast cancer data to:
+#   1. Clean and standardize TNM staging to AJCC versions.
+#   2. Analyze chemotherapy toxicity across different regimens.
+#   3. Visualize missing data patterns using 'naniar' and 'visdat'.
+###############################################################################
 ###############################################
 # PACKAGES
 ###############################################
@@ -13,7 +22,7 @@ library(stringr)
 ###############################################
 # LOAD DATA
 ###############################################
-df <- read_csv("R PROJECT - Sheet1 (1).csv")
+df <- read_csv("clinical_data_raw.csv")
 
 ###############################################
 # BASIC CLEANING
