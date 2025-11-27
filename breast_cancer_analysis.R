@@ -1,6 +1,6 @@
 ###############################################################################
 # Project: Clinical Toxicity & Staging Analysis
-# Author: Dr. Toluwanimi Adeyanju
+# Author: Toluwanimi Adeyanju
 # Description: 
 #   This script processes clinical breast cancer data to:
 #   1. Clean and standardize TNM staging to AJCC versions.
