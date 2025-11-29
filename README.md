@@ -1,6 +1,6 @@
 Breast Cancer Clinical Data Analysis
 
-This repository contains exploratory data analysis and visualization of a breast cancer clinical dataset, focusing on staging patterns, treatment distributions, and data completeness. The project highlights key clinical characteristics and evaluates the quality and usability of the dataset for further statistical or machine-learning applications.
+This repository contains exploratory data analysis and visualization of a breast cancer clinical dataset, focusing on staging patterns, treatment distributions, and data completeness. 
 
 Project Objectives
 
