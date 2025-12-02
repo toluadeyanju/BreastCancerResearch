@@ -43,5 +43,4 @@ Missingness Distribution Across Observations
 Next Steps
 - Improve data-collection protocols to reduce missing information
 - Emphasize complete documentation of clinical and treatment variables
-Avoid listwise deletion due to high data loss
-Enable valid statistical modeling through imputation strategies, exclusion of high-missingness variables, and assessment of missingness mechanisms (MCAR/MAR/MNAR)
+- Avoid listwise deletion due to high data loss
